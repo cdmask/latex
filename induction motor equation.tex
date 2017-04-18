@@ -1,0 +1,301 @@
+\documentclass[12pt]{article}
+\usepackage{palatino,url}
+\usepackage{amssymb,amsmath}
+\raggedright\setcounter{secnumdepth}{0}
+\begin{document}
+\section{IM equation in $\alpha\beta$ reference frame}
+Induction motor equation derivation
+\begin{itemize}	
+  \item stator voltage equation
+  \item stator flux linkage equation
+  \item rotor voltage equation
+  \item rotor flux linkage equation
+  \item torque equation
+\end{itemize}
+\subsection{Stator voltage equation}
+  $
+   \begin{bmatrix}v_{a}\\v_{b}\\v_{c} \end{bmatrix}
+   =
+   \begin{bmatrix}R_{s}&0&0\\0&R_{s}&0\\0&0&R_{s}\end{bmatrix}
+   \begin{bmatrix} i_{a}\\i_{b}\\i_{c}\end{bmatrix}
+   +
+   \frac d{dt} \begin{bmatrix}\lambda_{a}\\\lambda_{b}\\\lambda_{c}\end{bmatrix}
+   $
+\\
+times $K_{abc2\alpha\beta}$
+on both side of the equation and we get
+$
+   \begin{bmatrix}v_{\alpha}\\v_{\beta}\\v_{0} \end{bmatrix}
+   =
+   \begin{bmatrix}R_{s}&0&0\\0&R_{s}&0\\0&0&R_{s}\end{bmatrix}
+   \begin{bmatrix}i_{\alpha}\\i_{\beta}\\i_{0}\end{bmatrix}
+   +
+   K_{abc2\alpha\beta}
+   \frac d{dt}
+   \big(K_{\alpha\beta2abc}\begin{bmatrix}
+   \lambda_{\alpha}\\\lambda_{\beta}\\\lambda_{0} 
+   \end{bmatrix})
+$\\
+$K_{abc2\alpha\beta}\frac d{dt}\big(K_{\alpha\beta2abc}\begin{bmatrix}\lambda_{\alpha}\\\lambda_{\beta}\\\lambda_{0} \end{bmatrix})
+=
+K_{abc2\alpha\beta}\frac d{dt}\big(K_{\alpha\beta2abc})\begin{bmatrix}\lambda_{\alpha}\\\lambda_{\beta}\\\lambda_{0} \end{bmatrix}
++
+K_{abc2\alpha\beta}K_{\alpha\beta2abc}\frac d{dt}\begin{bmatrix}
+\lambda_{\alpha}\\\lambda_{\beta}\\\lambda_{0} \end{bmatrix}
+$\\
+because $K_{abc2\alpha\beta}$ and $K_{\alpha\beta2abc}$ are constant matrix and the inverse of each other, we have
+$
+K_{abc2\alpha\beta}\frac d{dt}\big(K_{\alpha\beta2abc})\begin{bmatrix}\lambda_{\alpha}\\\lambda_{\beta}\\\lambda_{0} \end{bmatrix}=0,
+K_{abc2\alpha\beta}K_{\alpha\beta2abc}\frac d{dt}\begin{bmatrix}
+\lambda_{\alpha}\\\lambda_{\beta}\\\lambda_{0} \end{bmatrix}
+=
+\frac d{dt}\begin{bmatrix}\lambda_{\alpha}\\\lambda_{\beta}\\\lambda_{0} \end{bmatrix}
+$
+thus,stator voltage equation obtained
+$\begin{bmatrix}v_{\alpha}\\v_{\beta}\\v_{0} \end{bmatrix}
+=\begin{bmatrix}R_{s}&0&0\\0&R_{s}&0\\0&0&R_{s}\end{bmatrix}
+\begin{bmatrix}i_{\alpha}\\i_{\beta}\\i_{0}\end{bmatrix}
++\frac d{dt}\begin{bmatrix}\lambda_{\alpha}\\\lambda_{\beta}\\\lambda_{0} \end{bmatrix}
+$
+\subsection{Stator flux linkage equation}
+$
+\begin{bmatrix}
+	\lambda_{a}\\\lambda_{b}\\\lambda_{c}
+\end{bmatrix}
+=\begin{bmatrix}
+	L_{ms}&-\frac{1}{2}L_{ms}&-\frac{1}{2}L_{ms}\\
+	-\frac{1}{2}L_{ms}&L_{ms}&-\frac{1}{2}L_{ms}\\
+	-\frac{1}{2}L_{ms}&-\frac{1}{2}L_{ms}&L_{ms}
+\end{bmatrix}
+\begin{bmatrix}
+i_{a}\\i_{b}\\i_{c}
+\end{bmatrix}
++
+\begin{bmatrix}
+L_{sleak}&0&0\\0&L_{sleak}&0\\0&0&L_{sleak}
+\end{bmatrix}
+\begin{bmatrix}
+i_{a}\\i_{b}\\i_{c}
+\end{bmatrix}
++
+L_{ms}\begin{bmatrix}
+\cos(\theta_{r})&\cos(\theta_{r}+\frac{2}{3}\pi)&\cos(\theta_{r}-\frac{2}{3}\pi)\\
+\cos(\theta_{r}-\frac{2}{3}\pi)&\cos(\theta_{r})&\cos(\theta_{r}+\frac{2}{3}\pi)\\
+\cos(\theta_{r}+\frac{2}{3}\pi)&\cos(\theta_{r}-\frac{2}{3}\pi)&\cos(\theta_{r})
+\end{bmatrix}
+\begin{bmatrix}
+i_{ar}\\i_{br}\\i_{cr}
+\end{bmatrix}
+$
+\\times 
+$K_{abc2\alpha\beta}$ on both sides of the equation\\
+$\begin{bmatrix}
+\lambda_{\alpha}\\\lambda_{\beta}\\\lambda_{0}
+\end{bmatrix}
+=
+K_{abc2\alpha\beta}\begin{bmatrix}
+L_{ms}&-\frac{1}{2}L_{ms}&-\frac{1}{2}L_{ms}\\
+-\frac{1}{2}L_{ms}&L_{ms}&-\frac{1}{2}L_{ms}\\
+-\frac{1}{2}L_{ms}&-\frac{1}{2}L_{ms}&L_{ms}
+\end{bmatrix}
+K_{\alpha\beta2abc}
+\begin{bmatrix}
+i_{\alpha}\\i_{\beta}\\i_{0}
+\end{bmatrix}
++\begin{bmatrix}
+L_{sleak}&0&0\\0&L_{sleak}&0\\0&0&L_{sleak}
+\end{bmatrix}
+\begin{bmatrix}
+i_{\alpha}\\i_{\beta}\\i_{0}
+\end{bmatrix}
++K_{abc2\alpha\beta}
+L_{ms}\begin{bmatrix}
+\cos(\theta_{r})&\cos(\theta_{r}+\frac{2}{3}\pi)&\cos(\theta_{r}-\frac{2}{3}\pi)\\
+\cos(\theta_{r}-\frac{2}{3}\pi)&\cos(\theta_{r})&\cos(\theta_{r}+\frac{2}{3}\pi)\\
+\cos(\theta_{r}+\frac{2}{3}\pi)&\cos(\theta_{r}-\frac{2}{3}\pi)&\cos(\theta_{r})
+\end{bmatrix}
+K_{\alpha\beta2rabc}\begin{bmatrix}
+i_{\alpha_{r}}\\i_{\beta_{r}}\\i_{0_{r}}
+\end{bmatrix}
+$
+Here,$K_{\alpha\beta2rabc}$ is not the same as $K_{\alpha\beta2abc}$ , the first one converts $\alpha\beta$ variables to rotor abc variables while the second one transforms $\alpha\beta$ variables to stator abc variables.
+Calculate these tranformation, we get\\
+$
+\begin{bmatrix}
+\lambda_{\alpha}\\\lambda_{\beta}\\\lambda_{0}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{3}{2}L_{ms}&0&0\\0&\frac{3}{2}L_{ms}&0\\0&0&0
+\end{bmatrix}
+\begin{bmatrix}
+i_{\alpha}\\i_{\beta}\\i_{0}
+\end{bmatrix}
++
+\begin{bmatrix}
+L_{sleak}&0&0\\0&L_{sleak}&0\\0&0&L_{sleak}
+\end{bmatrix}
+\begin{bmatrix}
+i_{\alpha}\\i_{\beta}\\i_{0}
+\end{bmatrix}
++
+\begin{bmatrix}
+	\frac{3}{2}L_{ms}&0&0\\0&\frac{3}{2}L_{ms}&0\\0&0&0
+\end{bmatrix}
+\begin{bmatrix}
+	i_{\alpha r}\\i_{\beta r}\\i_{0r}
+\end{bmatrix}
+$
+\\Stator flux linkage equation is done.
+\subsection{Rotor voltage equation}
+Now we devrive rotor vlotage equation
+$\begin{bmatrix}
+v_{ar}\\v_{br}\\v_{cr}
+\end{bmatrix}
+=
+ \begin{bmatrix}R_{r}&0&0\\0&R_{r}&0\\0&0&R_{r}\end{bmatrix}
+   \begin{bmatrix} i_{ar}\\i_{br}\\i_{cr}\end{bmatrix}
+   +
+   \frac{d}{dt}\begin{bmatrix}\lambda_{ar}\\\lambda_{br}\\\lambda_{cr}\end{bmatrix}
+$\\
+Times $K_{rabc2\alpha\beta}$ on both sides\\
+$\begin{bmatrix}
+v_{\alpha r}\\v_{\beta r}\\v_{0r}
+\end{bmatrix}
+=\begin{bmatrix}R_{r}&0&0\\0&R_{r}&0\\0&0&R_{r}\end{bmatrix}
+\begin{bmatrix}
+i_{\alpha r}\\i_{\beta r}\\i_{0r}
+\end{bmatrix}+K_{rabc2\alpha\beta}\frac{d}{dt}\big(K_{\alpha\beta2rabc}\begin{bmatrix}
+\lambda_{\alpha r}\\\lambda_{\beta r}\\\lambda_{0r}
+\end{bmatrix})
+$\\
+Calculate this with matlab, we obtain
+$\begin{bmatrix}
+v_{\alpha r}\\v_{\beta r}\\v_{0r}
+\end{bmatrix}
+=
+\begin{bmatrix}R_{r}&0&0\\0&R_{r}&0\\0&0&R_{r}\end{bmatrix}
+\begin{bmatrix}
+i_{\alpha r}\\i_{\beta r}\\i_{0r}
+\end{bmatrix}
++\omega_{r}\begin{bmatrix}
+0&1&0\\-1&0&0\\0&0&0
+\end{bmatrix}
+\begin{bmatrix}
+\lambda_{\alpha r}\\\lambda_{\beta r}\\\lambda_{0r}
+\end{bmatrix}
++\frac{d}{dt}\begin{bmatrix}
+\lambda_{\alpha r}\\\lambda_{\beta r}\\\lambda_{0r}
+\end{bmatrix}
+$
+\subsection{Rotor flux linkage equation}
+$
+\begin{bmatrix}
+	\lambda_{ar}\\\lambda_{br}\\\lambda_{cr}
+\end{bmatrix}
+=
+\begin{bmatrix}
+	L_{ms}&-\frac{1}{2}L_{ms}&-\frac{1}{2}L_{ms}\\
+	-\frac{1}{2}L_{ms}&L_{ms}&-\frac{1}{2}L_{ms}\\
+	-\frac{1}{2}L_{ms}&-\frac{1}{2}L_{ms}&L_{ms}
+\end{bmatrix}
+\begin{bmatrix}
+	i_{ar}\\i_{br}\\i_{cr}
+\end{bmatrix}
++\begin{bmatrix}
+L_{rleak}&0&0\\0&L_{rleak}&0\\0&0&L_{rleak}
+\end{bmatrix}
+\begin{bmatrix}
+i_{ar}\\i_{br}\\i_{cr}
+\end{bmatrix}
++
+L_{ms}\begin{bmatrix}
+\cos(\theta_{r})&\cos(\theta_{r}-\frac{2}{3}\pi)&\cos(\theta_{r}+\frac{2}{3}\pi)\\
+\cos(\theta_{r}+\frac{2}{3}\pi)&\cos(\theta_{r})&\cos(\theta_{r}-\frac{2}{3}\pi)\\
+\cos(\theta_{r}-\frac{2}{3}\pi)&\cos(\theta_{r}+\frac{2}{3}\pi)&\cos(\theta_{r})
+\end{bmatrix}
+\begin{bmatrix}
+i_{as}\\i_{bs}\\i_{cs}
+\end{bmatrix}
+$
+Times$K_{rabc2\alpha\beta}$ on both sides, we get\\
+$
+\begin{bmatrix}
+\lambda_{\alpha r}\\\lambda_{\beta r}\\\lambda_{0r}
+\end{bmatrix}
+=
+K_{rabc2\alpha\beta}
+\begin{bmatrix}
+L_{ms}&-\frac{1}{2}L_{ms}&-\frac{1}{2}L_{ms}\\
+-\frac{1}{2}L_{ms}&L_{ms}&-\frac{1}{2}L_{ms}\\
+-\frac{1}{2}L_{ms}&-\frac{1}{2}L_{ms}&L_{ms}
+\end{bmatrix}
+K_{\alpha\beta2rabc}
+\begin{bmatrix}
+i_{\alpha r}\\i_{\beta r}\\i_{0r}
+\end{bmatrix}
++\begin{bmatrix}
+L_{rleak}&0&0\\0&L_{rleak}&0\\0&0&l_{rleak}
+\end{bmatrix}
+\begin{bmatrix}
+i_{\alpha r}\\i_{\beta r}\\i_{0r}
+\end{bmatrix}
++
+L_{ms}K_{rabc2\alpha\beta}\begin{bmatrix}
+\cos(\theta_{r})&\cos(\theta_{r}-\frac{2}{3}\pi)&\cos(\theta_{r}+\frac{2}{3}\pi)\\
+\cos(\theta_{r}+\frac{2}{3}\pi)&\cos(\theta_{r})&\cos(\theta_{r}-\frac{2}{3}\pi)\\
+\cos(\theta_{r}-\frac{2}{3}\pi)&\cos(\theta_{r}+\frac{2}{3}\pi)&\cos(\theta_{r})
+\end{bmatrix}
+K_{\alpha\beta2abc}
+\begin{bmatrix}
+i_{\alpha s}\\i_{\beta s}\\i_{0s}
+\end{bmatrix}
+$\\
+Note this mutual inductance matrix is the transpose of the previous one in stator flux equation,not the same!\\
+Calculate this with matlab\\
+$
+\begin{bmatrix}
+\lambda_{\alpha r}\\\lambda_{\beta r}\\\lambda_{0r}
+\end{bmatrix}=
+\begin{bmatrix}
+\frac{3}{2}L_{ms}&0&0\\
+0&\frac{3}{2}L_{ms}&0\\
+0&0&0
+\end{bmatrix}
+\begin{bmatrix}
+i_{\alpha r}\\i_{\beta r}\\i_{0r}
+\end{bmatrix}
++
+\begin{bmatrix}
+L_{rleak}&0&0\\0&L_{rleak}&0\\0&0&L_{rleak}
+\end{bmatrix}
+\begin{bmatrix}
+i_{\alpha r}\\i_{\beta r}\\i_{0r}
+\end{bmatrix}+
+\begin{bmatrix}
+\frac{3}{2}L_{ms}&0&0\\0&\frac{3}{2}L_{ms}&0\\0&0&0
+\end{bmatrix}
+\begin{bmatrix}
+i_{\alpha s}\\i_{\beta s}\\i_{0s}
+\end{bmatrix}
+$\\
+Thus rotor flux equation obtained.\\
+\subsection{Torque equation}
+According to the book Analysis of electric machinery and drive system.We know torque is \\$
+T_{e}=\frac{\partial W_{c}(\textbf{i},\theta_{rm})}{\partial \theta_{rm}}=\frac{p}{2}\frac{\partial W_{c}(\textbf{i},\theta_{r})}{\partial \theta_{r}}
+$
+ $W_{c}=W_{f}=\frac{1}{2}(\textbf{i}_{abcs})^T\textbf{L}_{s}\textbf{i}_{abcs}+(\textbf{i}_{abcs})^T\textbf{L}^\prime_{sr}\textbf{i}^\prime_{abcr}+\frac{1}{2}(\textbf{i}^\prime_{abcr})^T\textbf{L}^\prime_{r}\textbf{i}^\prime_{abcr}$
+\\since $\textbf{L}_{s}$and$\textbf{L}^\prime_{r}$ are not functions of $\theta_{r}$,take of derevertive we have
+$
+\textbf{T}_{e}=(\frac{P}{2})(\textbf{i}_{abcs})^T\frac{\partial}{\partial \theta_{r}}[\textbf{L}^\prime_{sr}]\textbf{i}_{abcr}^\prime
+$ 
+This is the abc frame,now we change into $\alpha\beta$ reference frame
+$
+\textbf{T}_{e}=(\frac{P}{2})(K_{\alpha\beta2abc}K_{abc2\alpha\beta}\textbf{i}_{abcs})^T\frac{\partial}{\partial \theta_{r}}[\textbf{L}^\prime_{sr}](K_{\alpha\beta2rabc}K_{rabc2\alpha\beta}\textbf{i}_{abcr}^\prime)$
+\\$
+\textbf{T}_{e}=(\frac{P}{2})\textbf{i}_{\alpha\beta0}^TK_{\alpha\beta2abc}^T\frac{\partial}{\partial \theta_{r}}[\textbf{L}_{sr}^\prime]K_{\alpha\beta2rabc}\textbf{i}_{abcr}^\prime$ 
+\\calculate with matlab and we get\\
+$
+\textbf{T}_{e}=-\frac{3}{2}L_{m}(i_{\alpha s}i_{\beta r}-i_{\alpha r}i_{\beta s})
+$
+\end{document}
